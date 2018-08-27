@@ -1,0 +1,50 @@
+﻿<span> Employee Component header</span>
+<table border="1">
+    <thead>
+        <tr>
+            <th [attr.colspan]="columspan">                
+                Employe details 1
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                FirstName
+            </td>
+            <td>
+                {{EmpFName}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                LastName
+            </td>
+            <td>
+                {{EmpLName}}
+            </td>
+        </tr>
+        <tr *ngIf="showDetails">
+            <td>
+                Gender
+            </td>
+            <td>
+                {{EmpGender}}
+            </td>
+        </tr>
+        <tr *ngIf="showDetails">
+            <td>
+                Age
+            </td>
+            <td>
+                {{EmpAge}}
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<br />
+<br />
+<div>
+    <button id="eventbindingex2" (click)="toggle()">EventBinding</button>
+</div>

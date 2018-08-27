@@ -1,0 +1,12 @@
+﻿<h2>Nested, Input and Output Componets 2</h2>
+<span>Select the option</span><br />
+<span> Show :  </span>
+<input type="radio" name="options" value="All" [(ngModel)]="SelectedRadioButtonval" (change)="OnChangeRadioBtnEvent()" />
+<span> {{ "All (" + all + ")" }} </span>
+<input type="radio" name="options" value="M" [(ngModel)]="SelectedRadioButtonval" (change)="OnChangeRadioBtnEvent()" />
+<span> {{ "Males (" + male + ")" }} </span>
+<input type="radio" name="options" value="F" [(ngModel)]="SelectedRadioButtonval" (change)="OnChangeRadioBtnEvent()"/>
+<span> {{ "Females (" + female + ")" }} </span>
+<br />
+<span>Two way data binding : {{SelectedRadioButtonval}}</span>
+<hr />

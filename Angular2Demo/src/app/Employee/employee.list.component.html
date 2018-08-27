@@ -1,0 +1,68 @@
+﻿<hr />
+<h2>ngFor Directive , trackBy - refersh new records only, Index,First,Last,Even,Odd </h2>
+
+<table border="1" style="font-family:Calibri;font-size:large;color:blue;border-color:red">
+    <thead>
+        <tr>
+            <td>EmpId</td>
+            <td>EmpName</td>
+            <td>EmpGender</td>
+            <td>EmpSalary</td>
+            <td>Index</td>
+            <td>IsFirst</td>
+            <td>IsLast</td>
+            <td>IsEven</td>
+            <td>IsOdd</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employeeList;trackBy:trackByEmployeeId;let i = index;let isFirst = first;let isLast =last; let isEven=even;let isOdd = odd">
+            <td>{{emp.EmpID}}</td>
+            <td>{{emp.EmpName}}</td>
+            <td>{{emp.EmpGender}}</td>
+            <td>{{emp.EmpSalary}}</td>
+            <td>{{i}}</td>
+            <td>{{isFirst}}</td>
+            <td>{{isLast}}</td>
+            <td>{{isEven}}</td>
+            <td>{{isOdd}}</td>
+        </tr>
+        <tr *ngIf="!employeeList || employeeList.length==0">
+            <td colspan="4"> NO Emploee records found!!</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<button on-click="getNewEmployees()">Referesh</button>
+<br />
+<hr />
+<employee-count [all]="getTotalNumberEmployee()" 
+                [male] ="getMaleEmployee()"
+                [female]="getFemaleEmployee()"
+                (RadioButtonEvent)="SetValFromChildComponet($event)"></employee-count>
+<br/>
+
+<span>Selected Radio button value from child component : {{SelectedRadioButnval}}</span>
+<table border="1" style="font-family:Calibri;font-size:large;color:blue;border-color:red">
+    <thead>
+        <tr>
+            <td>EmpId</td>
+            <td>EmpName</td>
+            <td>EmpGender</td>
+            <td>EmpSalary</td>           
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let emp of employeeList1;">
+            <tr *ngIf="SelectedRadioButnval=='All' || SelectedRadioButnval==emp.EmpGender">
+                <td>{{emp.EmpID}}</td>
+                <td>{{emp.EmpName}}</td>
+                <td>{{emp.EmpGender}}</td>
+                <td>{{emp.EmpSalary}}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="!employeeList1 || employeeList1.length==0">
+            <td colspan="4"> NO Emploee records found!!</td>
+        </tr>
+    </tbody>
+</table>

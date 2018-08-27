@@ -1,0 +1,23 @@
+﻿<h1>
+    {{'Page Header = ' + pageHeader}}
+    {{getFullName()}}
+    <br />
+</h1>
+<my-employee></my-employee>
+<br />
+<br />
+<div>
+    <button id="eventbindingex" (click)="OnClick()">EventBinfingFromHtmlToCOmponet</button>
+</div>
+<hr />
+<div>
+    <h2>Two way data binding</h2>
+    name  : <input type="text" [(ngModel)]="name" />
+    <br />
+    <br />
+    You Entered : <p> {{name}} </p>
+</div>
+<hr />
+<emplist></emplist>
+<hr />
+
